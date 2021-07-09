@@ -4,7 +4,7 @@ tasks = []
 
 # Add Task:
 # Ask the user for the 'title' and 'priority' of the task. Priority can be high, medium and low.
-def add_task(choice, tasks):
+def add_task(tasks):
     name = input("\nEnter the name of your task: ")
     priority = input("\nEnter priority of task: ")
 
@@ -16,7 +16,7 @@ def add_task(choice, tasks):
 
 # Delete Task:
 # Show user all the tasks along with the index number of each task. User can then enter the index number of the task to delete the task.
-def delete_task(choice, tasks):
+def delete_task(tasks):
     for index in range(len(tasks)):
         print(f"{index + 1} - {tasks[index]['Task']} - {tasks[index]['Priority']}")
     num = int(input("\nEnter the number of the task you would like to delete: "))
@@ -29,7 +29,7 @@ def delete_task(choice, tasks):
 
 # View all tasks:
 # Allow the user to view all the tasks in the following format:
-def view_tasks(choice, tasks):
+def view_tasks(tasks):
     if len(tasks) == 0:
         print("\nYou have no tasks.")
     for index in range(len(tasks)):
@@ -50,13 +50,13 @@ while True:
         print("\nGoodbye\n")
         break
     elif choice == "1":
-        add_task(choice, tasks)
+        add_task(tasks)
 
     elif choice == "2":   
-        delete_task(choice, tasks)
+        delete_task(tasks)
     
     elif choice == "3":
-        view_tasks(choice, tasks)
+        view_tasks(tasks)
     
     else:
         print("\nInvalid option\n")
